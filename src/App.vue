@@ -6,9 +6,10 @@
   import TheProgress from './pages/TheProgress.vue'
   import {PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS} from './constants.js'
   import {ref} from 'vue'
-  import { normalizePageHash } from './functions'
+  import { normalizePageHash, generateTimelineItems } from './functions'
 
   const currentPage = ref(normalizePageHash())
+  const timelineItems = generateTimelineItems()
 
   function goTo(page) {
     currentPage.value = page
@@ -18,7 +19,7 @@
 <template>
   <TheHeader @go-to-time-line="goTo(PAGE_TIMELINE)" @go-to-progress="goTo(PAGE_PROGRESS)" />
   <main class="flex flex-grow flex-col">
-    <TheTimeLine v-show="currentPage === PAGE_TIMELINE" />
+    <TheTimeLine v-show="currentPage === PAGE_TIMELINE" :timeline-items="timelineItems" />
     <TheActivities v-show="currentPage === PAGE_ACTIVITIES" />
     <TheProgress v-show="currentPage === PAGE_PROGRESS" />
   </main>
