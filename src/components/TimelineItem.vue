@@ -14,13 +14,15 @@
         {value: 2, label: 'Reading'},
         {value: 3, label: 'Training'}
     ]
-</script>
+
+    const selectedActivityId = 3
+    </script>
 
 <template>
     <li class="relative flex flex-col gap-2 border-t border-gray-200 py-10 px-4">
         <a href="#" :class="hourLinkClasses">
             {{timelineItem.hour}}:00
         </a>
-        <BaseSelect :options="options" placeholder="Rest" />
+        <BaseSelect :selected="selectedActivityId" :options="options" placeholder="Rest" />
     </li>
 </template>
