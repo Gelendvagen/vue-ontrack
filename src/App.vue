@@ -17,7 +17,7 @@
 </script>
 
 <template>
-  <TheHeader @go-to-time-line="goTo(PAGE_TIMELINE)" @go-to-progress="goTo(PAGE_PROGRESS)" />
+  <TheHeader @navigate="goTo($event)" />
   <main class="flex flex-grow flex-col">
     <TheTimeLine v-show="currentPage === PAGE_TIMELINE" :timeline-items="timelineItems" />
     <TheActivities v-show="currentPage === PAGE_ACTIVITIES" />
