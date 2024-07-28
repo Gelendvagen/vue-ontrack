@@ -6,9 +6,7 @@
         timelineItems: {
             requred: true,
             type: Array,
-            validator(timelineItems) {
-                return timelineItems.every(isTimeLineItemValid)
-            }
+            validator: validateTimelineItems
         }
     })
 </script>

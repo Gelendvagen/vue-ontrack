@@ -1,7 +1,7 @@
 <script setup>
   import NavItem from './NavItem.vue'
   import {NAV_ITEMS} from '../constants'
-  import {isPageValid} from '../validators';
+  import {isPageValid} from '../validators'
 
   defineProps({
     currentPage: {
