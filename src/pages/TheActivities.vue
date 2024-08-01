@@ -2,22 +2,17 @@
     import {TrashIcon} from '@heroicons/vue/24/outline'
     import BaseButton from '../components/BaseButton.vue'
     import BaseSelect from '../components/BaseSelect.vue'
+
+    const periodSelectOptions = [{
+        value: 15,
+        label: '0:15'
+    }]
 </script>
 
 <template>
     <div>
-        <ul>
-            <li>
-                <div>
-                    <BaseButton>
-                        <TrashIcon class="h-8" />
-                    </BaseButton>
-                    <span>Reading</span>
-                </div>
-                <div>
-                    <BaseSelect />
-                </div>
-            </li>
+        <ul class="divide-y">
+            <ActivityItem v-for="activity in activities" :key="activity" :activity="activity" />
         </ul>
     </div>
 </template>

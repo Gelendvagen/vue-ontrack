@@ -11,6 +11,8 @@
   const currentPage = ref(normalizePageHash())
   const timelineItems = generateTimelineItems()
 
+  const activities = ['Coding', 'Reading', 'Training']
+
   function goTo(page) {
     currentPage.value = page
   }
