@@ -1,12 +1,13 @@
 <script setup>
-    import {TrashIcon} from '@heroicons/vue/24/outline'
-    import BaseButton from '../components/BaseButton.vue'
-    import BaseSelect from '../components/BaseSelect.vue'
+    import ActivityItem from '../components/ActivityItem.vue'
 
-    const periodSelectOptions = [{
-        value: 15,
-        label: '0:15'
-    }]
+    defineProps({
+        activities: {
+            required: true,
+            type: Array,
+            //validator:
+        }
+    })
 </script>
 
 <template>
