@@ -4,11 +4,13 @@
     import BaseSelect from './BaseSelect.vue'
     import {ref} from 'vue'
     import {PERIOD_SELECT_OPTIONS} from '../constants'
+    import {isActivityValid} from '../validators'
 
     defineProps({
         activity: {
             required: true,
-            type: String
+            type: String,
+            validator: isActivityValid
         }
     })
 
