@@ -40,7 +40,7 @@ function isNull(value) {
     return value === null
 }
 
-function isUndefined(value) {
+export function isUndefined(value) {
     return value === undefined
 }
 
