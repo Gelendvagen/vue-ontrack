@@ -11,7 +11,7 @@
   const currentPage = ref(normalizePageHash())
   const timelineItems = generateTimelineItems()
 
-  const activities = ref(['Coding', 'Reading', 'Training'])
+  const activities = ref(generateActivities())
 
   const activitySelectOptions = generateActivitySelectOptions(activities.value);
 

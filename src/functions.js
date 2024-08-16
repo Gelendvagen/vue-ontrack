@@ -21,3 +21,17 @@ export function generateTimelineItems() {
 export function generateActivitySelectOptions(activities) {
     return activities.map((label, value) => ({label, value}))
 }
+
+export function generateActivities() {
+    return [
+        {id: id(),
+        name: 'Coding',
+        secondsToComplete: 0*3600},
+        {id: id(),
+        name: 'Training',
+        secondsToComplete: 360},
+        {id: id(),
+        name: 'Reading',
+        secondsToComplete: 7200}
+    ]
+}
