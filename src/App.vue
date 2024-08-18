@@ -6,7 +6,7 @@
   import TheProgress from './pages/TheProgress.vue'
   import {PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS} from './constants.js'
   import {ref} from 'vue'
-  import {normalizePageHash, generateTimelineItems, generateActivitySelectOptions, generateActivities, id} from './functions'
+  import {normalizePageHash, generateTimelineItems, generateActivitySelectOptions, generateActivities} from './functions'
 
   const currentPage = ref(normalizePageHash())
   const timelineItems = generateTimelineItems()
@@ -23,12 +23,8 @@
     activities.value.splice(activities.value.indexOf(activity), 1)
   }
 
-  function createActivity(name) {
-    activities.value.push({
-      id: id(),
-      name,
-      secondsToComplete: 0
-    })
+  function createActivity(activity) {
+    activities.value.push(activity)
   }
 </script>
 

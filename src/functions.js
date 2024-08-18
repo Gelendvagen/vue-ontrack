@@ -23,17 +23,11 @@ export function generateActivitySelectOptions(activities) {
 }
 
 export function generateActivities() {
-    return [
-        {id: id(),
-        name: 'Coding',
-        secondsToComplete: 0 * SECONDS_UN_HOUR},
-        {id: id(),
-        name: 'Training',
-        secondsToComplete: 1 * SECONDS_UN_HOUR},
-        {id: id(),
-        name: 'Reading',
-        secondsToComplete: 2 * SECONDS_UN_HOUR}
-    ]
+    return ['Coding', 'Reading', 'Training'].map((name, hours) => ({
+        id: id(),
+        name,
+        secondsToComplete: hours * SECONDS_UN_HOUR
+    }))
 }
 
 export function id() {
