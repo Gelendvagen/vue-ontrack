@@ -15,7 +15,7 @@
         }
     })
 
-    const secondsToComplete = ref(null)
+    const secondsToComplete = ref(0)
 
     const emit = defineEmits({
         delete: isUndefined

@@ -5,7 +5,7 @@
   import TheActivities from './pages/TheActivities.vue'
   import TheProgress from './pages/TheProgress.vue'
   import {PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS} from './constants.js'
-  import {ref} from 'vue'
+  import {ref, computed} from 'vue'
   import {normalizePageHash, generateTimelineItems, generateActivitySelectOptions, generateActivities} from './functions'
 
   const currentPage = ref(normalizePageHash())
@@ -13,7 +13,7 @@
 
   const activities = ref(generateActivities())
 
-  const activitySelectOptions = generateActivitySelectOptions(activities.value);
+  const activitySelectOptions = computed(() => generateActivitySelectOptions(activities.value))
 
   function goTo(page) {
     currentPage.value = page

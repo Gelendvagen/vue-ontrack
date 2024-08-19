@@ -32,11 +32,15 @@ export function isUndefinedOrNull(value) {
     return isUndefined(value) || isNull(value)
 }
 
+export function isSelectValueValid(value) {
+    return isNotEmptyString(value) || isNumberOrNull(value)
+}
+
 export function isNumberOrNull(value) {
     return typeof isNumber(value) || isNull(value)
 }
 
-function isNull(value) {
+export function isNull(value) {
     return value === null
 }
 
