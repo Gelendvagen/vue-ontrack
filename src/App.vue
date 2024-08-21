@@ -31,7 +31,7 @@
 <template>
   <TheHeader @navigate="goTo($event)" />
   <main class="flex flex-grow flex-col">
-    <TheTimeLine v-show="currentPage === PAGE_TIMELINE" :timeline-items="timelineItems" :activity-select-options="activitySelectOptions" />
+    <TheTimeLine v-show="currentPage === PAGE_TIMELINE" :timeline-items="timelineItems" :activity-select-options="activitySelectOptions" :activities="activities" />
     <TheActivities v-show="currentPage === PAGE_ACTIVITIES" :activities="activities" @create-activity="createActivity" @delete-activity="deleteActivity" />
     <TheProgress v-show="currentPage === PAGE_PROGRESS" />
   </main>
