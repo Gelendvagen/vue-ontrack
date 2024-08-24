@@ -7,10 +7,10 @@
   import {PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS} from './constants.js'
   import {ref, computed} from 'vue'
   import {normalizePageHash, generateTimelineItems, generateActivitySelectOptions, generateActivities} from './functions'
-import func from '../vue-temp/vue-editor-bridge'
 
   const currentPage = ref(normalizePageHash())
-  const timelineItems = generateTimelineItems()
+
+  const timelineItems = ref(generateTimelineItems())
 
   const activities = ref(generateActivities())
 
@@ -21,6 +21,11 @@ import func from '../vue-temp/vue-editor-bridge'
   }
 
   function deleteActivity(activity) {
+    timelineItems.value.forEach((timelineItem) => {
+      if (timelineItem.activityId === activity.id) {
+        timelineItem.activityId = null
+      }
+    })
     activities.value.splice(activities.value.indexOf(activity), 1)
   }
 
@@ -29,7 +34,7 @@ import func from '../vue-temp/vue-editor-bridge'
   }
 
   function setTimelineItemActivity({timelineItem, activity}) {
-    timelineItem.activityId = activity.id
+    timelineItem.activityId = activity?.id || null
   }
 </script>
 
