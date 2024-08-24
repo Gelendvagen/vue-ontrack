@@ -3,7 +3,7 @@
     import {isActivityValid, isTimeLineItemValid, validateActivities, validateSelectOptions} from '../validators'
     import TimelineHour from './TimelineHour.vue'
 
-    defineProps({
+    const props = defineProps({
         timelineItem: {
             requred: true,
             type: Object,
@@ -22,7 +22,7 @@
     })
 
     function selectActivity(id) {
-        emit('selectActivity', activities.find((activity) => activity.id === id))
+        emit('selectActivity', props.activities.find((activity) => activity.id === id))
     }
 
     const emit = defineEmits({
