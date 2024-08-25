@@ -48,7 +48,7 @@ export function isUndefined(value) {
     return value === undefined
 }
 
-function isNumber(value) {
+export function isNumber(value) {
     return typeof value === 'number'
 }
 
