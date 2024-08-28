@@ -38,3 +38,5 @@ export const BUTTON_TYPES = {
     BUTTON_TYPE_DANGER,
     BUTTON_TYPE_PRIMARY
 }
+
+export const NULLABLE_ACTIVITY = {id: null}
