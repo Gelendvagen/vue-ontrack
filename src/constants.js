@@ -1,4 +1,5 @@
 import {ClockIcon, ListBulletIcon, ChartBarIcon} from '@heroicons/vue/24/outline'
+import {generatePeriodSelectOption} from './functions'
 
 export const PAGE_TIMELINE = 'timeline'
 export const PAGE_ACTIVITIES = 'activities'
@@ -12,22 +13,11 @@ export const NAV_ITEMS = {
 
 export const HOURS_IN_DAY = 24
 export const MIDNIGHT_HOUR = 0
-export const SECONDS_UN_HOUR = 3600
+export const SECONDS_IN_HOUR = SECONDS_IN_MINUTE * MINUTES_IN_HOUR
+export const SECONDS_IN_MINUTE = 60
+export const MINUTES_IN_HOUR = 60
 
-export const PERIOD_SELECT_OPTIONS = [
-    {
-    value: 1 * SECONDS_UN_HOUR,
-    label: '01:00'
-    },
-    {
-    value: 2 * SECONDS_UN_HOUR,
-    label: '02:00'
-    },
-    {
-    value: 3 * SECONDS_UN_HOUR,
-    label: '03:00'
-    },
-]
+export const PERIOD_SELECT_OPTIONS = generatePeriodSelectOption(PERIODS_IN_MINUTES)
 
 export const BUTTON_TYPE_NEUTRAL = 'neutral'
 export const BUTTON_TYPE_DANGER = 'danger'
@@ -40,3 +30,7 @@ export const BUTTON_TYPES = {
 }
 
 export const NULLABLE_ACTIVITY = {id: null}
+
+const PERIODS_IN_MINUTES = [
+    15, 30, 45, 60, 90, 120, 150, 180, 210, 250, 270, 300
+]
