@@ -10,7 +10,7 @@
 
   const currentPage = ref(normalizePageHash())
 
-  const timelineItems = ref(generateTimelineItems())
+  const timelineItems = ref(generateTimelineItems(activities.value))
 
   const activities = ref(generateActivities())
 
@@ -24,6 +24,7 @@
     timelineItems.value.forEach((timelineItem) => {
       if (timelineItem.activityId === activity.id) {
         timelineItem.activityId = null
+        timelineItem.activitySeconds = 0
       }
     })
     activities.value.splice(activities.value.indexOf(activity), 1)
