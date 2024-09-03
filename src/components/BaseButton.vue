@@ -20,10 +20,12 @@
             validator: isButtonTypeValid
         }
     })
+
+    const classes = ['rounded p-3 disabled:cursor-not-allowed disabled:opacity-50', typeClasses[props.type]]
 </script>
 
 <template>
-    <button class="`${typeClasses[type]} rounded p-3 disabled:cursor-not-allowed disabled:opacity-50`">
+    <button :class="classes">>
         <slot></slot>
      </button>
 </template>

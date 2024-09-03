@@ -1,3 +1,11 @@
+<script setup>
+    import TheProgressEmptyState from '../components/TheProgressEmptyState.vue'
+
+</script>
+
 <template>
-    <h1>Progress</h1>
+    <ul v-if="trackedActivities.length" class="divide-y">
+        <ProgressItem v-for="activity in trackedActivities" :key="activity.id" :activity="activity" />
+    </ul>
+    <TheProgressEmptyState v-else />
 </template>
