@@ -5,6 +5,7 @@
     import {PERIOD_SELECT_OPTIONS} from '../constants'
     import {BUTTON_TYPE_DANGER} from '../constants'
     import {isActivityValid, isUndefined, isNumber} from '../validators'
+    import RemainingActivitySeconds from './RemainingActivitySeconds.vue'
 
     defineProps({
         activity: {
@@ -36,6 +37,7 @@
                 :selected="activity.secondsToComplete || null" 
                 @select="emit('secondsToComplete', $event || 0)"
             />
+            <RemainingActivitySeconds v-if="activity.secondsToComplete" :activity="activity" />
         </div>
     </li>
 </template>
