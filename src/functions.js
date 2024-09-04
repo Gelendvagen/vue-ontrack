@@ -1,34 +1,5 @@
-import {PAGE_TIMELINE, HOURS_IN_DAY, SECONDS_UN_HOUR, MINUTES_IN_HOUR, SECONDS_IN_MINUTE, MILLISECONDS_IN_SECOND} from './constants.js'
-import {isPageValid, isNull} from './validators.js'
-
-export function normalizePageHash() {
-    const page = window.location.hash.slice(1)
-    if (isPageValid(page)) {
-        return page
-    }
-    window.location.hash = PAGE_TIMELINE
-    return PAGE_TIMELINE
-  }
-
-export function generateTimelineItems(activities) {
-    return [...Array(HOURS_IN_DAY).keys()].map((hour) => ({
-        hour,
-        activityId: hour % 4 === 0 ? null : activities[hour % 2].id,
-        activitySeconds: hour % 4 === 0 ? 0 : (15 * SECONDS_IN_MINUTE * hour) % SECONDS_UN_HOUR
-    }))
-}
-
-export function generateActivitySelectOptions(activities) {
-    return activities.map((activity) => ({label: activity.name, value: activity.id}))
-}
-
-export function generateActivities() {
-    return ['Coding', 'Reading', 'Training'].map((name, hours) => ({
-        id: id(),
-        name,
-        secondsToComplete: hours * SECONDS_UN_HOUR
-    }))
-}
+import {MINUTES_IN_HOUR, SECONDS_IN_MINUTE, MILLISECONDS_IN_SECOND, HUNDRED_PERCENT, MEDIUM_PERCENT, LOW_PERCENT} from './constants.js'
+import {isNull} from './validators.js'
 
 export function id() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2)
@@ -39,14 +10,20 @@ export function normalizeSelectValue(value) {
 }
 
 export function generatePeriodSelectOption(periodsInMinutes) {
+    const periodsInMinutes = [
+        15, 30, 45, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480
+    ]
+    
     return periodsInMinutes.map((periodInMinutes) => ({
         value: periodInMinutes * SECONDS_IN_MINUTE,
         label: generatePeriodSelectOptionsLabel(periodInMinutes)
     }))
 }
+
 function generatePeriodSelectOptionsLabel(periodInMinutes) {
     const hours = Math.floor(periodInMinutes / MINUTES_IN_HOUR).toString().padStart(2, 0)
     const minutes = (periodInMinutes % MINUTES_IN_HOUR).toString().padStart(2, 0)
+  
     return `${hours}:${minutes}`
 }
 
@@ -59,4 +36,12 @@ export function formatSeconds(seconds) {
 
 export function formatSecondsWithSign(seconds) {
     return `${seconds >= 0 ? '+' : '-'}${formatSeconds(seconds)}`
+}
+
+export function getProgressColorClass(percentage) {
+    if (percentage < LOW_PERCENT) return 'bg-red-500'
+    if (percentage < MEDIUM_PERCENT) return 'bg-yellow-500'
+    if (percentage < HUNDRED_PERCENT) return 'bg-blue-500'
+  
+    return 'bg-green-500'
 }

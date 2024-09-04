@@ -1,38 +1,17 @@
 <script setup>
     import BaseSelect from './BaseSelect.vue'
-    import {isActivityValid, isTimeLineItemValid, validateActivities, validateSelectOptions} from '../validators.js'
+    import {isTimeLineItemValid} from '../validators.js'
+    import {updateTimelineItem} from '../timeline-items'
+    import {activitySelectOptions} from '../activities'
     import TimelineHour from './TimelineHour.vue'
-    import {NULLABLE_ACTIVITY} from '../constants.js'
     import TimelineStopwatch from './TimelineStopwatch.vue'
 
-    const props = defineProps({
+    defineProps({
         timelineItem: {
             requred: true,
             type: Object,
             validator: isTimeLineItemValid
-        },
-        activitySelectOptions: {
-            required: true,
-            type: Array,
-            validator: validateSelectOptions
-        },
-        activities: {
-            required: true,
-            type: Array,
-            validator: validateActivities
         }
-    })
-
-    function selectActivity(id) {
-        emit('selectActivity', findActivityById(id))
-    }
-
-    function findActivityById(id) {
-        return props.activities.find((activity) => activity.id === id) || NULLABLE_ACTIVITY
-    }
-
-    const emit = defineEmits({
-        selectActivity: isActivityValid
     })
 </script>
 
@@ -43,8 +22,8 @@
             :selected="timelineItem.activityId" 
             :options="activitySelectOptions" 
             placeholder="Rest" 
-            @select="selectActivity"
+            @select="updateTimelineItem(timelineItem, {activityId: $event})"
         />
-        <TimelineStopwatch :seconds="timelineItem.activitySeconds" />
+        <TimelineStopwatch :timeline-item="timelineItem" />
     </li>
 </template>

@@ -27,5 +27,5 @@
 <template>
     <button :class="classes">
         <slot></slot>
-     </button>
+    </button>
 </template>

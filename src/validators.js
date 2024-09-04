@@ -1,7 +1,8 @@
-import {NAV_ITEMS, HOURS_IN_DAY, MIDNIGHT_HOUR, BUTTON_TYPES} from "./constants"
+import {NAV_ITEMS, HOURS_IN_DAY, MIDNIGHT_HOUR, BUTTON_TYPES} from './constants'
+import {ICONS} from './icons'
 
 export function isPageValid(page) {
-    return Object.keys(NAV_ITEMS).includes(page)
+    return NAV_ITEMS.some((navItem) => navItem.page === page)
 }
 
 export function isButtonTypeValid(type) {
@@ -17,15 +18,11 @@ export function validateSelectOptions(options) {
 }
 
 function isSelectOptionValid({value, label}) {
-    return (isNumber(value) || isNotEmptyString(value) && isNotEmptyString(label))
+    return (isNumber(value) || isNotEmptyString(value)) && isNotEmptyString(label)
 }
 
 function isString(value) {
     return typeof value === 'string'
-}
-
-export function validateTimelineItems(timelineItems) {
-    return timelineItems.every(isTimeLineItemValid)
 }
 
 export function isUndefinedOrNull(value) {
@@ -37,7 +34,7 @@ export function isSelectValueValid(value) {
 }
 
 export function isNumberOrNull(value) {
-    return typeof isNumber(value) || isNull(value)
+    return isNumber(value) || isNull(value)
 }
 
 export function isNull(value) {
@@ -64,17 +61,17 @@ export function isActivityValid({id, name, secondsToComplete}) {
     if (isNull(id)) {
         return true
     }
-    return [
-        isNotEmptyString(id),
-        isNotEmptyString(name),
-        isNumber(secondsToComplete)
-    ].every(Boolean)
+    return [isNotEmptyString(id), isNotEmptyString(name), isNumber(secondsToComplete)].every(Boolean)
 }
 
 function isNotEmptyString(value) {
     return isString(value) && value.length > 0
 }
 
-export function validateActivities(activities) {
-    return activities.every(isActivityValid)
+export function isIconValid(icon) {
+    return Object.keys(ICONS).includes(icon)
+}
+
+export function isNavItemValid(navItem) {
+    return NAV_ITEMS.includes(navItem)
 }
