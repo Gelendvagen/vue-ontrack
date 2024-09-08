@@ -1,5 +1,7 @@
 <script setup>
-    import {ICON_ARROW_PATH, ICON_PAUSE, ICON_PLAY} from '../icons'
+    import {ICON_ARROW_PATH} from '../icons'
+    import {ICON_PAUSE} from '../icons'
+    import {ICON_PLAY} from '../icons'
     import {BUTTON_TYPE_SUCCESS} from '../constants'
     import {BUTTON_TYPE_WARNING} from '../constants'
     import {BUTTON_TYPE_DANGER} from '../constants'
@@ -7,7 +9,9 @@
     import BaseIcon from './BaseIcon.vue'
     import {now} from '../time'
     import {formatSeconds} from '../functions.js'
-    import {startTimelineItemTimer, stopTimelineItemTimer, resetTimelineItemTimer} from '../timeline-item-timer'
+    import {startTimelineItemTimer} from '../timeline-item-timer'
+    import {stopTimelineItemTimer} from '../timeline-item-timer'
+    import {resetTimelineItemTimer} from '../timeline-item-timer'
     import {isTimelineItemValid} from '../validators'
     import {activeTimelineItem} from '../timeline-items'
 
@@ -35,7 +39,7 @@
         <BaseButton
             v-if="timelineItem === activeTimelineItem"
             :type="BUTTON_TYPE_WARNING"
-            click="stopTimelineItemTimer"
+            @click="stopTimelineItemTimer"
         >
             <BaseIcon :name="ICON_PAUSE" />
         </BaseButton>

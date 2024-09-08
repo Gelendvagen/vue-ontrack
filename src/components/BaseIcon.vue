@@ -3,11 +3,11 @@
     import {isIconValid} from '../validators'
 
     defineProps({
-    name: {
-        required: true,
-        type: String,
-        validator: isIconValid
-    }
+        name: {
+            required: true,
+            type: String,
+            validator: isIconValid
+        }
     })
 </script>
 

@@ -8,7 +8,7 @@ export const timelineItemRefs = ref([])
 export const timelineItems = ref([])
 
 export const activeTimelineItem = computed(() =>
-    timelineItems.value.find(({isActive}) => isActive)
+    timelineItems.value.find(({ isActive }) => isActive)
 )
 
 watch(now, (after, before) => {
@@ -81,8 +81,8 @@ function calculateIdleSeconds(lastActiveAt) {
 function resetTimelineItems() {
     timelineItems.value.forEach((timelineItem) =>
         updateTimelineItem(timelineItem, {
-        activitySeconds: 0,
-        isActive: false
+            activitySeconds: 0,
+            isActive: false
         })
     )
 }

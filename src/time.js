@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import {ref, computed} from 'vue'
 import {HUNDRED_PERCENT, SECONDS_IN_DAY, MILLISECONDS_IN_SECOND, SECONDS_IN_HOUR} from './constants'
 
 export const now = ref(today())

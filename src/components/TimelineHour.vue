@@ -23,5 +23,5 @@
 </script>
 
 <template>
-    <a href="#" :class="classes" @click.prevent="scrollToHour(hour)">{{formattedHour}}:00</a>
+    <a href="#" :class="classes" @click.prevent="scrollToHour(hour)">{{formattedHour}}</a>
 </template>

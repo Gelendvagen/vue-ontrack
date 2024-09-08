@@ -1,6 +1,6 @@
 <script setup>
     import BaseSelect from './BaseSelect.vue'
-    import {isTimeLineItemValid} from '../validators.js'
+    import {isTimelineItemValid} from '../validators.js'
     import {updateTimelineItem} from '../timeline-items'
     import {activitySelectOptions} from '../activities'
     import TimelineHour from './TimelineHour.vue'
@@ -10,7 +10,7 @@
         timelineItem: {
             requred: true,
             type: Object,
-            validator: isTimeLineItemValid
+            validator: isTimelineItemValid
         }
     })
 </script>

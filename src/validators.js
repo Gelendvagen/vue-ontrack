@@ -9,7 +9,7 @@ export function isButtonTypeValid(type) {
     return BUTTON_TYPES.includes(type)
 }
 
-export function isTimeLineItemValid({hour}) {
+export function isTimelineItemValid({hour}) {
     return isHourValid(hour)
 }
 
@@ -33,7 +33,7 @@ export function isSelectValueValid(value) {
     return isNotEmptyString(value) || isNumberOrNull(value)
 }
 
-export function isNumberOrNull(value) {
+function isNumberOrNull(value) {
     return isNumber(value) || isNull(value)
 }
 
@@ -41,11 +41,11 @@ export function isNull(value) {
     return value === null
 }
 
-export function isUndefined(value) {
+function isUndefined(value) {
     return value === undefined
 }
 
-export function isNumber(value) {
+function isNumber(value) {
     return typeof value === 'number'
 }
 

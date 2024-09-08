@@ -10,6 +10,6 @@
 
 <template>
     <a :href="`#${PAGE_TIMELINE}`" @click="handleClick">
-        <img src="../assets/img/logo.png" alt="Logo" class="h-9" />
+        <img src="../assets/img/logo.svg" alt="Logo" class="h-9" />
     </a>
 </template>
