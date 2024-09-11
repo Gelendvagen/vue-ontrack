@@ -1,5 +1,5 @@
 import {ICON_CLOCK, ICON_LIST_BULLET, ICON_CHART_BAR} from './icons'
-import {generatePeriodSelectOption} from './functions'
+import {generatePeriodSelectOptions} from './functions'
 
 export const APP_NAME = 'ontrack'
 
@@ -38,13 +38,13 @@ export const BUTTON_TYPE_PRIMARY = 'primary'
 export const BUTTON_TYPE_SUCCESS = 'success'
 export const BUTTON_TYPE_WARNING = 'warning'
 
-export const BUTTON_TYPES = {
+export const BUTTON_TYPES = [
     BUTTON_TYPE_NEUTRAL,
     BUTTON_TYPE_DANGER,
     BUTTON_TYPE_PRIMARY,
     BUTTON_TYPE_SUCCESS,
     BUTTON_TYPE_WARNING
-}
+]
 
 export const LOW_PERCENT = 33
 export const MEDIUM_PERCENT = 66

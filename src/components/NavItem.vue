@@ -1,4 +1,4 @@
-<script>
+<script setup>
     import {computed} from 'vue'
     import {PAGE_TIMELINE} from '../constants'
     import {isNavItemValid} from '../validators'

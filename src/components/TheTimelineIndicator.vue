@@ -1,4 +1,4 @@
-<script>
+<script setup>
     import {ref, computed} from 'vue'
     import {HUNDRED_PERCENT} from '../constants'
     import {secondsSinceMidnightInPercentage} from '../time'
