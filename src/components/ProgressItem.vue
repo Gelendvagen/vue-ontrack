@@ -12,7 +12,9 @@
         }
     })
 
-    const {colorClass, percentage, trackedActivitySeconds} = useProgress(props.activity)
+    const {colorClass} = useProgress(props.activity)
+    const {percentage} = useProgress(props.activity)
+    const {trackedActivitySeconds} = useProgress(props.activity)
 </script>
 
 <template>

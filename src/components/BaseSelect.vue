@@ -9,7 +9,7 @@
 
     const props = defineProps({
         selected: [String, Number],
-        placeholder:{
+        placeholder: {
             required: true,
             type: String
         },
@@ -38,7 +38,7 @@
         </BaseButton>
         <select class="w-full truncate rounded bg-gray-100 py-1 px-2 text-2xl" @change="select($event.target.value)">
             <option :selected="isNotSelected" disabled value="">{{placeholder}}</option>
-            <option v-for="{value, label} in options" :key="value" :value="value" selected="value === selected">
+            <option v-for="{value, label} in options" :key="value" :value="value" :selected="value === selected">
                 {{label}}
             </option>
         </select>
